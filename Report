@@ -1,0 +1,38 @@
+Assignment 1 Report
+
+Name: Sai Geetha Kandepalli Cherukuru
+
+1. Performance on the development data with 100% of the training data
+1a. spam precision: 0.99
+1b. spam recall: 0.98
+1c. spam F1 score: 0.99
+1d. ham precision: 0.95
+1e. ham recall: 0.98
+1f. ham F1 score: 0.97
+
+2. Performance on the development data with 10% of the training data
+2a. spam precision: 0.98
+2b. spam recall: 0.96
+2c. spam F1 score: 0.97
+2d. ham precision: 0.91
+2e. ham recall: 0.96
+2f. ham F1 score: 0.94
+
+	10% of the training data was created manually. 10% of total files (10% train data: 1702) was calculated and selected half of the files to be ham (851 ham files) and the other half of the files to be spam examples (851 spam files), and nblearn script was run on 10% training data and ran nbclassify script on dev data to calculate the performance. 
+
+3. Description of enhancement(s) you tried (e.g., different approach(es) to smoothing, treating common words differently, dealing with unknown words differently):
+	I have made two enhancements. 
+	
+	Firstly, I have implemented Add-k smoothing algorithm for calculating the probabilities of the class with a given file. According to Add-k smoothing, a constant m (say m=5) is considered and m=kV. where V is the vocabulary size. Thus while calculating the likelihood for a given class instead of adding 1 to numerator and V to denominator, in this algorithm m *(1/V) is added to numerator and m constant value is added to the denominator. 
+
+	Secondly, I have eliminated all the stop words in the data and calculated the likelihood and prior for a class, without considering any of the stop words in the file content. (STOP WORDS list source was taken from online)
+
+	Thus by implementing these enhancements, the overall performance is still the same and ham precision is slightly enhanced though.
+
+4. Best performance results based on enhancements. Note that these could be the same or worse than the standard implementation.
+4a. spam precision: 0.99
+4b. spam recall: 0.99
+4c. spam F1 score: 0.99
+4d. ham precision: 0.98
+4e. ham recall: 0.97
+4f. ham F1 score: 0.97
